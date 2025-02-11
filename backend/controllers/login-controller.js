@@ -1,4 +1,5 @@
-// const { getDB } = require("../config/db");
+const bycrypt = require("bcryptjs");
+const { getDB } = require("../config/db");
 
 const loginController = async (req, res) => {
   console.log("Received login request with:", req.body);
@@ -12,7 +13,20 @@ const loginController = async (req, res) => {
     return res.status(400).json({error: "Password not given"});
   }
 
-  return res.status(200).json({message: "Login and username both given"});
+  const db = getDB();
+  const existingUser = await db.collection("users").findOne( {username: username} );
+
+  if (existingUser){
+    const passwordValid = await bycrypt.compare(password, existingUser.password);
+    if (passwordValid) {
+      return res.status(200).json({error: "Username and password correct"});
+    } else {
+      return res.status(400).json({error: "Username or password incorrect"});
+
+    }
+  } else{
+    return res.status(400).json({error: "Username or password incorrect"});
+  }
 };
 
 module.exports = loginController;
