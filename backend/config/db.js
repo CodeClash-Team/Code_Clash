@@ -23,5 +23,3 @@ const getDB = () => {
 };
 
 module.exports = { connectToDB, getDB };
-
-console.log("Running");

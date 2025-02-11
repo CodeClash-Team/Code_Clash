@@ -1,5 +1,6 @@
 const express = require("express");
-const { connectToDB } = require("./config/db"); // Adjust path if needed
+const path = require("path")
+const { connectToDB } = require(path.resolve(__dirname + "/config/db")); // Adjust path if needed
 
 const app = express();
 const PORT = process.env.PORT || 5000;
