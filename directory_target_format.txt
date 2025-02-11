@@ -4,6 +4,7 @@ Code_Clash/
 │   ├── public/     # Static assets (images, fonts, etc.)
 │   ├── package.json
 │   ├── tailwind.config.js
+│   └── .gitignore
 ├──backend/
 │   ├── config/            # Configuration files (DB connection, environment variables, etc.)
 │   ├── controllers/       # Logic to handle requests (e.g., login, user CRUD operations)
@@ -13,6 +14,5 @@ Code_Clash/
 │   ├── utils/             # Utility functions (e.g., password hashing, token generation)
 │   ├── server.js          # Entry point for the backend server (Express app)
 │   ├── .env               # Environment variables (e.g., database URI, JWT secret)
-│   └── package.json       # Project dependencies and scripts
-├── .gitignore
-├── README.md
+│   ├── package.json       # Project dependencies and scripts
+│   └── .gitignore
