@@ -1,12 +1,18 @@
-my-project/
-├── client/         # Front-end code (React, Next.js, etc.)
+Code_Clash/
+├── frontend/         # Front-end code (React, Next.js, etc.)
 │   ├── src/        # React components, pages, styles
 │   ├── public/     # Static assets (images, fonts, etc.)
 │   ├── package.json
 │   ├── tailwind.config.js
-├── server/         # Back-end code (Node.js, Express, etc.)
-│   ├── src/        # API routes, database models, controllers
-│   ├── config/     # Server configuration files (DB, environment variables)
-│   ├── package.json
-├── .gitignore
-├── README.md
+│   └── .gitignore
+├──backend/
+│   ├── config/            # Configuration files (DB connection, environment variables, etc.)
+│   ├── controllers/       # Logic to handle requests (e.g., login, user CRUD operations)
+│   ├── models/            # MongoDB models (schemas for users, etc.)
+│   ├── routes/            # Express routes for API endpoints
+│   ├── middleware/        # Express middlewares (e.g., authentication, logging)
+│   ├── utils/             # Utility functions (e.g., password hashing, token generation)
+│   ├── server.js          # Entry point for the backend server (Express app)
+│   ├── .env               # Environment variables (e.g., database URI, JWT secret)
+│   ├── package.json       # Project dependencies and scripts
+│   └── .gitignore
