@@ -21,7 +21,16 @@ const startServer = async () => {
   server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 };
 
+const endServer = async () => {
+  if (server){
+    server.close()
+    console.log("Server closed")
+    process.exit(0)
+  }
+}
 
 
-module.exports = { app, startServer };
-// startServer();
+
+
+module.exports = { app, startServer, endServer };
+startServer();

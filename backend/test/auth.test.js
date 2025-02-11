@@ -1,9 +1,14 @@
 const request = require('supertest');
 const { expect } = require('chai');
-const { app, startServer } = require('../server');
+const { app, startServer, endServer } = require('../server');
 
 before(async () => {
     await startServer();
+});
+
+after(() => {
+  endServer();
+  
 });
 
 
