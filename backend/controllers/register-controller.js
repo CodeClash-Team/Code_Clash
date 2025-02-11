@@ -1,4 +1,5 @@
-// const { getDB } = require("../config/db");
+const bycrypt = require("bcryptjs");
+const { getDB } = require("../config/db");
 
 const registerController = async (req, res) => {
   console.log("Received register request with:", req.body);
@@ -12,7 +13,22 @@ const registerController = async (req, res) => {
     return res.status(400).json({error: "Password not given"});
   }
 
-  return res.status(200).json({message: "Login and username both given"});
+  const db = getDB();
+  const existingUser = await db.collection("users").findOne( {username: username} );
+  console.log("Existing user var", existingUser);
+
+  if (existingUser){
+    return res.status(400).json({error: "Username taken"});
+  }
+
+  const hashedPassword = await bycrypt.hash(password, 10);
+
+  await db.collection("users").insertOne({
+    username: username,
+    password: hashedPassword
+  });
+
+  return res.status(201).json({message: "Account created successfully"});
 };
 
 module.exports = registerController;

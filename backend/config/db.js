@@ -8,7 +8,7 @@ let db;
 const connectToDB = async () => {
   try {
     await client.connect();
-    db = client.db();
+    db = client.db("codeclash-db");
     console.log("Connected to the database!");
   } catch(error) {
     console.error("Error connecting to the database", error);
