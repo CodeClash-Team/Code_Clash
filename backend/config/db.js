@@ -1,5 +1,6 @@
 const { MongoClient } = require("mongodb");
-require("dotenv").config({ path: "./.env" });
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri);
 let db;
