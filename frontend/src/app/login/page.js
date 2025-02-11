@@ -31,7 +31,7 @@ export default function Login() {
             </a>
           </form>
           <a href="/" className="text-sm text-right text-blue-500 hover:underline mt-4 block">Forgot password?</a>
-          <a href="/" className="text-sm text-right text-blue-500 hover:underline mt-1 block">New user? Register here</a>
+          <a href="/create-account" className="text-sm text-right text-blue-500 hover:underline mt-1 block">New user? Register here</a>
         </div>
       </div>
     </>
