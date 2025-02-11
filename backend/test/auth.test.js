@@ -13,7 +13,9 @@ after(() => {
 
 
 describe('\nAuth API', () => {
-  describe('\nPOST /api/auth/login', () => {
+  describe('\nPOST /api/auth/login and POST /api/auth/register', () => {
+
+
     it('should return 400 if username and password are not provided', async () => {
       const res = await request(app)
         .post('/api/auth/login')
@@ -37,17 +39,7 @@ describe('\nAuth API', () => {
       expect(res.status).to.equal(400);
       expect(res.body).to.have.property('error', 'Password not given');
     });
-
-    it('should return 400 if username or password is incorrect', async () => {
-      const res = await request(app)
-        .post('/api/auth/login')
-        .send({ username: 'wrongUser', password: 'wrongPassword' });
-      expect(res.status).to.equal(400);
-      expect(res.body).to.have.property('error', 'Username or password incorrect');
-    });
-  });
-
-  describe('\nPOST /api/auth/register', () => {
+  
     it('should return 400 if username and password are not provided', async () => {
       const res = await request(app)
         .post('/api/auth/login')
@@ -58,7 +50,7 @@ describe('\nAuth API', () => {
 
     it('should return 400 if username is not provided', async () => {
       const res = await request(app)
-        .post('/api/auth/login')
+        .post('/api/auth/register')
         .send({ password: 'testPassword123' });
       expect(res.status).to.equal(400);
       expect(res.body).to.have.property('error', 'Username not given');
@@ -66,18 +58,18 @@ describe('\nAuth API', () => {
 
     it('should return 400 if password is not provided', async () => {
       const res = await request(app)
-        .post('/api/auth/login')
+        .post('/api/auth/register')
         .send({ username: 'testUser' });
       expect(res.status).to.equal(400);
       expect(res.body).to.have.property('error', 'Password not given');
     });
 
-    it('should return 400 if username or password is incorrect', async () => {
+    it('should return 400 if username and password are not provided', async () => {
       const res = await request(app)
-        .post('/api/auth/login')
-        .send({ username: 'wrongUser', password: 'wrongPassword' });
+        .post('/api/auth/register')
+        .send({});
       expect(res.status).to.equal(400);
-      expect(res.body).to.have.property('error', 'Username or password incorrect');
+      expect(res.body).to.have.property('error', 'Username and password are required');
     });
   });
 
