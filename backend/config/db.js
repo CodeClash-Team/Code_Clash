@@ -1,5 +1,5 @@
 const { MongoClient } = require("mongodb");
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config({ path: "./.env" });
 const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri);
 let db;
@@ -15,11 +15,13 @@ const connectToDB = async () => {
   }
 };
 
-const getDb = () => {
+const getDB = () => {
   if (!db) {
     throw new Error("Database not initialised");
   }
   return db;
 };
 
-module.exports = { connectToDB, getDb };
+module.exports = { connectToDB, getDB };
+
+console.log("Running");
