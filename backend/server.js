@@ -7,11 +7,11 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  console.log('Body:', req.body);
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log(`${req.method} ${req.url}`);
+//   console.log('Body:', req.body);
+//   next();
+// });
 
 let server
 
@@ -33,4 +33,4 @@ const endServer = async () => {
 
 
 module.exports = { app, startServer, endServer };
-startServer();
+// startServer();
