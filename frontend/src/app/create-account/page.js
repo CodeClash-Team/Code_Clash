@@ -15,7 +15,7 @@ export default function Create_Account() {
     if (e.target.password.value !== e.target.confirmPassword.value) {
       setErrorMessage("Passwords do not match");
     }
-  }
+  };
 
   return (
     <>

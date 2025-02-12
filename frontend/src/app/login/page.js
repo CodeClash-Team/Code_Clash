@@ -5,7 +5,7 @@ export default function Login() {
   return (
     <>
       <Logo />
-      
+
       <div className="p-8 sm:p-10 font-[family-name:var(--font-geist-sans)]">
         <h1 className="text-4xl font-bold mb-8 text-center">Login</h1>
         <div className="max-w-md mx-auto">
