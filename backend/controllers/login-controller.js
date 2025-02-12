@@ -19,7 +19,7 @@ const loginController = async (req, res) => {
   if (existingUser){
     const passwordValid = await bycrypt.compare(password, existingUser.password);
     if (passwordValid) {
-      return res.status(200).json({error: "Username and password correct"});
+      return res.status(200).json({message: "Username and password correct"});
     } else {
       return res.status(400).json({error: "Username or password incorrect"});
 
