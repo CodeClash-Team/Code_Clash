@@ -15,7 +15,6 @@ const registerController = async (req, res) => {
 
   const db = getDB();
   const existingUser = await db.collection("users").findOne( {username: username} );
-  console.log("Existing user var", existingUser);
 
   if (existingUser){
     return res.status(400).json({error: "Username taken"});

@@ -13,7 +13,7 @@ app.use(express.json());
 //   next();
 // });
 
-let server
+let server;
 
 const startServer = async () => {
   await connectToDB();
@@ -23,11 +23,11 @@ const startServer = async () => {
 
 const endServer = async () => {
   if (server){
-    server.close()
-    console.log("Server closed")
-    process.exit(0)
+    server.close();
+    console.log("Server closed");
+    process.exit(0);
   }
-}
+};
 
 
 
