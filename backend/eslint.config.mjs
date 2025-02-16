@@ -5,7 +5,7 @@ import pluginJs from "@eslint/js";
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {files: ["**/*.js"], languageOptions: {sourceType: "script"}},
-  {languageOptions: { globals: globals.node },
+  {languageOptions: { globals: {...globals.node, ...globals.mocha} },
     rules : { "quotes": ["error", "double"], // Enforce double quotes
       "semi": ["error", "always"], // Enforce semicolons
       "indent": ["error", 2], // Enforce 2-space indentation

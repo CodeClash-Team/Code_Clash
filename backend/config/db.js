@@ -1,5 +1,6 @@
 const { MongoClient } = require("mongodb");
-require("dotenv").config({ path: "./.env" });
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri);
 let db;
@@ -7,7 +8,7 @@ let db;
 const connectToDB = async () => {
   try {
     await client.connect();
-    db = client.db();
+    db = client.db("codeclash-db");
     console.log("Connected to the database!");
   } catch(error) {
     console.error("Error connecting to the database", error);
@@ -23,5 +24,3 @@ const getDB = () => {
 };
 
 module.exports = { connectToDB, getDB };
-
-console.log("Running");
